@@ -7,6 +7,8 @@
     left:0;
     height: 12%;
     opacity: 85%;
+
+    z-index: 2;
   
   }
   #topbartext {
@@ -80,7 +82,7 @@ a {
    }
 
 #loggertext{
-    background-image: linear-gradient(#403b37, #8eb2ec);
+    background-image: linear-gradient(#4b4036, #8eb2ec);
     
     right:0px;
     left:0px;
@@ -94,4 +96,65 @@ a {
 
     padding-left: 7%;
     padding-right: 7%;
+}
+
+/**/
+
+#mainButtons{
+  display: flex;
+  justify-content: space-evenly;
+}
+#mainButtons button{
+  margin: 3%;
+  padding: 3%;
+  font-size: 200%;
+  border-radius: 25px;
+}
+#mainButtons button:hover{
+  cursor: pointer;
+}
+
+h1{
+  font-size: 250%;
+}
+h2{
+  font-size: 150%;
+}
+.activity{
+  background-color: #accdff;
+  border: 2px solid black;
+  border-radius: 25px;
+  width: 50%;
+  transform: translate(50%,0);
+  margin: 10px;
+}
+.lbl{
+  font-weight: bold;
+}
+
+#activityTemplate{
+  display: none;
+}
+
+#addActivity{
+  background-color:#accdff;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 200%;
+  width: 75%;
+  margin:auto;
+
+  display: none;
+}
+.addActivityField input, select{
+  font-size: 75%;
+}
+#submitActivity{
+  font-size: 100%;
+  margin: 2%;
+  padding: 15px;
+  border-radius: 15px;
+}
+#submitActivity:hover{
+  cursor: pointer;
 }
