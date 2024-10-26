@@ -76,6 +76,8 @@ document.getElementById("switch").addEventListener("click", function(){
     newAccount = !newAccount
 
     if (newAccount){
+        document.getElementById("header").innerHTML = "Register:"
+
         document.getElementById("nameLabel").classList.remove("nameInputs")
         document.getElementById("name").classList.remove("nameInputs")
 
@@ -83,6 +85,8 @@ document.getElementById("switch").addEventListener("click", function(){
         document.getElementById("submit").innerHTML = "Register"
 
     }else{
+        document.getElementById("header").innerHTML = "Login:"
+
         document.getElementById("nameLabel").classList.add("nameInputs")
         document.getElementById("name").classList.add("nameInputs")
 

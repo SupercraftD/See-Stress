@@ -4,34 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login or Register</title>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
     <link rel="stylesheet" href="/login/style.css" />
 </head>
 <body>
     
+    <img id="bgimage" src="/Images/loginbg.jpg" />
+
     <div id="fields">
 
-        <label class="nameInputs" for="name" id="nameLabel">Username: </label>
-        <input class="nameInputs" id="name" type="text" />
+        <h1 id="header">Login:</h1>
 
-        <br>
+        <div class="fieldInput">
+            <label class="nameInputs" for="name" id="nameLabel">Username: </label>
+            <input class="nameInputs" id="name" type="text" />
+        </div>
 
-        <label for="email">Email: </label>
-        <input id="email" type="email"/>
+        <div class="fieldInput">
+            <label for="email">Email: </label>
+            <input id="email" type="email"/>
+        </div>
 
-        <br>
+        <div class="fieldInput">
+            <label for="password">Password: </label>
+            <input id="password" type="password"/>
+        </div>
 
+        <div class="fieldInput">
+            <button id="submit">Login</button>
+        </div>
 
-        <label for="password">Password: </label>
-        <input id="password" type="password"/>
-
-        <br>
-
-        <button id="submit">Login</button>
-
-        <br>
-
-        <a id="switch">register new account</a>
-
+        <div class="fieldInput">
+            <a id="switch">register new account</a>
+        </div>
                 
     </div>
 
