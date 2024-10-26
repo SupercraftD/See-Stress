@@ -6,7 +6,7 @@
     left:0;
     height: 12%;
     opacity: 85%;
-  
+    z-index: 2;
   }
   #topbartext {
       font-family: 'Merriweather';
@@ -85,9 +85,12 @@
     padding-left: 7%;
     padding-right: 7%;
 }
-#importanttext{
+#importanttext, #avgstresslevel{
     font-weight: bold;
     font-size: 30px;
+}
+#avgstresslevel{
+  font-size: 40px;
 }
 a {
     color: wheat;
