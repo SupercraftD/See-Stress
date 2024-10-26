@@ -24,7 +24,7 @@
     position:fixed;
     top: 0%;
     text-align: left;
-    margin-top: 1%;
+    margin-top: 1.6%;
     margin-bottom:0%;
     margin-left: 4%;
     font-weight: bolder;
@@ -40,15 +40,18 @@
   text-align: center;
   color: black;
   font-size: large;
+
+  padding-left: 7%;
+  padding-right: 7%;
 }
 
-#aboutheader {
-  font-size: 19px;
+.aboutheader {
+  font-size: 25px;
   font-weight: bolder;
 }
 
-#aboutsubtext {
-  font-size: 15px;
+.aboutsubtext {
+  font-size: 20px;
 }
 
 body {
@@ -117,3 +120,11 @@ body {
   cursor: pointer;
 }
 
+#footer {
+  background-color: #2c3e50;
+  border-top: 1px solid black;
+  position:absolute;
+  top:100%;
+  width:100%;
+  left: 0%;
+}
