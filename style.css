@@ -4,5 +4,64 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#topbar {
+  background-color: #e5b078;
+  position: fixed;
+  top:0px;
+  width: 100%;
+  left:0;
+  height: 10%;
+  opacity: 85%;
+
+}
+#topbartext {
+    font-family: 'Merriweather';
+    color:#25528f;
+
+    font-size: 50px;
+    position:fixed;
+    top: 0%;
+    text-align: left;
+    margin-top: 1.2%;
+    margin-bottom:0%;
+    margin-left: 2%;
+    font-weight: bolder;
+}
+#abouttext {
+  position:absolute;
+  top: 140%;
+}
+
+
+body {
+  margin: 0px;
+  background-image: url("/Images/beach1crop.png");
+  background-repeat: no-repeat;
+}
+
+.centered-text {
+  font-weight: bold;
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:rgb(4, 8, 61); 
+  font-size: 80px; 
+  padding: 10px; 
+  font-family: 'Merriweather';
+
+}
+.centered-text2 {
+  
+  text-align: center;
+  font-family: 'Merriweather';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:rgb(4, 8, 61); 
+  font-size: 30px; 
+  padding: 10px; 
 }
