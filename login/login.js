@@ -49,7 +49,10 @@ async function submit(email, pass){
                 log: []
             }
 
+
             await setDoc(doc(db, "Users/"+user.uid), uData)
+
+            location.href = "/dashboard/"
 
         }).catch((error)=>{
             alert(error.message);
@@ -59,7 +62,7 @@ async function submit(email, pass){
         .then(async (userCredentials)=>{
 
             //logged into existing acc
-
+            location.href = "/dashboard/"
 
 
         }).catch((error)=>{
