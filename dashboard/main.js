@@ -20,10 +20,17 @@ document.getElementById("login").addEventListener("click", function(){
   sessionStorage.setItem("authType","dashboard")
   location.href = "/dashboard/"
 })
+
+///fix this
 document.getElementById("register").addEventListener("click", function(){
   sessionStorage.setItem("authType","register")
   location.href = "/login/"
 })
+
+document.getElementById("activitylogger").addEventListener("click", function(){
+  location.href = "/activitylogger/"
+})
+
 
 onAuthStateChanged(auth, async(user)=>{
   if (user){
