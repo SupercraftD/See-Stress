@@ -118,6 +118,7 @@ body {
   background-color: coral;
 
 }
+
 #rightalignbuttons button:hover{
   cursor: pointer;
 }
@@ -129,7 +130,21 @@ body {
   top:100%;
   width:100%;
   left: 0%;
+  color: wheat;
+
+  display: flex;
+  justify-content: space-evenly;
+
+  
 }
+
+a {
+  color: wheat;
+
+  padding-top: 1%;
+  text-decoration: underline;
+  
+ }
 
 #bottombuttons{
   font-family: 'Merriweather';

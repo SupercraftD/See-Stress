@@ -17,8 +17,8 @@ const auth = getAuth();
 const db = getFirestore();
 
 document.getElementById("login").addEventListener("click", function(){
-  sessionStorage.setItem("authType","login")
-  location.href = "/login/"
+  sessionStorage.setItem("authType","dashboard")
+  location.href = "/dashboard/"
 })
 document.getElementById("register").addEventListener("click", function(){
   sessionStorage.setItem("authType","register")
