@@ -127,4 +127,17 @@ body {
   top:100%;
   width:100%;
   left: 0%;
+  color: wheat;
+
+  display: flex;
+  justify-content: space-evenly;
+
+  
 }
+ a {
+  color: wheat;
+
+  padding-top: 1%;
+  text-decoration: underline;
+  
+ }
