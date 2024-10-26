@@ -22,6 +22,8 @@ let newAccount = false
 window.addEventListener("load", init)
 function init(){
 
+
+
     let email = document.getElementById("email")
     let pass = document.getElementById("password")
     let submitEmt = document.getElementById("submit")
@@ -74,13 +76,17 @@ document.getElementById("switch").addEventListener("click", function(){
     newAccount = !newAccount
 
     if (newAccount){
-        Array.from(document.getElementsByClassName("nameInputs")).forEach((e)=>{e.style.display = "block"})
+        document.getElementById("nameLabel").classList.remove("nameInputs")
+        document.getElementById("name").classList.remove("nameInputs")
+
         document.getElementById("switch").innerHTML = "login to existing account"
         document.getElementById("submit").innerHTML = "Register"
 
     }else{
+        document.getElementById("nameLabel").classList.add("nameInputs")
+        document.getElementById("name").classList.add("nameInputs")
+
         document.getElementById("switch").innerHTML = "register new account"
-        Array.from(document.getElementsByClassName("nameInputs")).forEach((e)=>{e.style.display = "none"})
         document.getElementById("submit").innerHTML = "Login"
 
     }

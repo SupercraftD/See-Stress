@@ -1,3 +1,15 @@
+#fields{
+    text-align: center !important;
+}
+
+#switch{
+    text-decoration: underline;
+    color: blue;   
+}
+#switch:hover{
+    cursor: pointer;
+}
+
 .nameInputs{
     display: none;
 }
