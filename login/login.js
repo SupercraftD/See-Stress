@@ -22,13 +22,13 @@ let newAccount = false
 window.addEventListener("load", init)
 function init(){
 
-
-
     let email = document.getElementById("email")
     let pass = document.getElementById("password")
     let submitEmt = document.getElementById("submit")
 
     submitEmt.addEventListener("click",function(){ submit(email.value, pass.value) })
+
+    switchAuthType(sessionStorage.getItem("authType") == "register")
 
 }
 
@@ -75,6 +75,12 @@ document.getElementById("switch").addEventListener("click", function(){
 
     newAccount = !newAccount
 
+    switchAuthType(newAccount)
+
+})
+
+function switchAuthType(newAccount){
+    
     if (newAccount){
         document.getElementById("header").innerHTML = "Register:"
 
@@ -95,5 +101,4 @@ document.getElementById("switch").addEventListener("click", function(){
 
     }
 
-})
-
+}
