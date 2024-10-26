@@ -1,5 +1,40 @@
 #fields{
+    position: absolute;
     text-align: center !important;
+    background-color: #e5b078;
+    opacity: 85%;
+    width: 25%;
+    height:75%;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border-radius: 10%;
+    border: 10px solid black;
+
+    font-family: "Merriweather";
+    font-size: 150%;
+}
+
+.fieldInput input{
+    font-size: 75%;
+    font-family: "Merriweather";
+}
+
+#submit{
+    font-size: 100%;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+#header{
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 #switch{
@@ -12,4 +47,13 @@
 
 .nameInputs{
     display: none;
+}
+
+#bgimage{
+    position: fixed;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
 }
