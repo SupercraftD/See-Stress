@@ -12,7 +12,7 @@
   top:0px;
   width: 100%;
   left:0;
-  height: 10%;
+  height: 12%;
   opacity: 85%;
 
 }
@@ -24,9 +24,9 @@
     position:fixed;
     top: 0%;
     text-align: left;
-    margin-top: 1.2%;
+    margin-top: 1%;
     margin-bottom:0%;
-    margin-left: 2%;
+    margin-left: 4%;
     font-weight: bolder;
 }
 #abouttext {
@@ -37,8 +37,21 @@
 
 body {
   margin: 0px;
-  background-image: url("/Images/beach1crop.png");
-  background-repeat: no-repeat;
+}
+
+#bodybg{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  z-index: -10;
+}
+
+.container{
+  position: absolute;
+  width:100%;
+  height:100%;
 }
 
 .centered-text {
@@ -48,7 +61,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color:rgb(4, 8, 61); 
-  font-size: 80px; 
+  font-size: 400%; 
   padding: 10px; 
   font-family: 'Merriweather';
 
@@ -58,10 +71,28 @@ body {
   text-align: center;
   font-family: 'Merriweather';
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   color:rgb(4, 8, 61); 
-  font-size: 30px; 
+  font-size: 200%; 
   padding: 10px; 
+}
+
+#rightalignbuttons{
+  position: fixed;
+  width: 50%;
+  left: 50%;
+  top:6%;
+  transform: translate(0,-50%);
+  text-align: right;
+}
+#rightalignbuttons button{
+  margin-right: 15%;
+  font-size: 200%;
+  border-radius: 20px;
+  padding: 10px;
+}
+#rightalignbuttons button:hover{
+  cursor: pointer;
 }
