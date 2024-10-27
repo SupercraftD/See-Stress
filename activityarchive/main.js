@@ -27,6 +27,8 @@ document.getElementById("logger").addEventListener("click", function(){
   location.href = "/activitylogger/"
 })
 
+
+
 onAuthStateChanged(auth, async(user)=>{
   if (user){
 
@@ -59,6 +61,12 @@ onAuthStateChanged(auth, async(user)=>{
 
     })
     logs=logs.reverse()
+
+    async function removeActivity(activity){
+      logs.splice(logs.indexOf(activity),1)
+      await updateDoc(doc(db, "Users", user.uid), {log:logs})
+      refreshList()
+    }
 
     function refreshList(){
 
@@ -113,6 +121,8 @@ onAuthStateChanged(auth, async(user)=>{
                     }
                     currentField++
 
+                }else if (child.classList && child.classList.contains("removeActivity")){
+                  child.addEventListener("click",function(){removeActivity(activity)})
                 }
             }
             element.id = "activity"+a

@@ -156,11 +156,11 @@ onAuthStateChanged(auth, async(user)=>{
 function toggleShowAdd(){
     let a = document.getElementById("add")
 
-    if (a.innerHTML == "Add Log"){
+    if (a.innerHTML == "Add Log Entry"){
         document.getElementById("addActivity").style.display = "block"
         a.innerHTML = "Cancel"
     }else{
         document.getElementById("addActivity").style.display = "none"
-        a.innerHTML = "Add Log"
+        a.innerHTML = "Add Log Entry"
     }
 }

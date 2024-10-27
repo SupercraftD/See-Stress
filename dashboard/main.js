@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
-import {Chart, registerables} from "chart.js"
+import {Chart, registerables} from "https://cdn.jsdelivr.net/npm/chart.js@4.4.5/+esm"
 Chart.register(...registerables)
 
 const firebaseConfig = {
