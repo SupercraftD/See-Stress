@@ -93,15 +93,74 @@ onAuthStateChanged(auth, async(user)=>{
     }
     document.getElementById("dailyadvice").innerHTML = adviceString
 
+
     let types = ["test","hw","family","social","other"]
+
+    let mostStressedToday = ""
+    let maxStress = 0
 
     for (let type of types){
       let v = 0
       if (type in typedAverageSum){
         v = Math.round(typedAverageSum[type])
       }
+      if (v>maxStress){
+        maxStress = v
+        mostStressedToday = type
+      }
       document.getElementById(type+"Stress").innerHTML = v
     }
+
+    let currentDay = parseInt(year) * 365 + daysIntoYear(`${year}-${month}-${day}`)
+
+    let weeklyValues = [0,0,0,0,0]
+    for (let a in logs){
+      let activity = logs[a]
+      let activityDay = parseInt(activity.date.split(":")[0])*365 + daysIntoYear(activity.date)
+
+      if (! (activityDay > currentDay-7)){
+        console.log('w',activityDay,currentDay)  
+        continue
+      }
+      console.log('w',activity)
+      weeklyValues[types.indexOf(activity.type)] += parseInt(activity.stress)
+    }
+    let mostStressedWeek = ""
+    maxStress = 0
+    for (let i=0; i<types.length; i++){
+      if (weeklyValues[i] > maxStress){
+        maxStress = weeklyValues[i]
+        mostStressedWeek = types[i]
+      }
+    }
+
+    let monthlyValues = [0,0,0,0,0]
+    for (let a in logs){
+      let activity = logs[a]
+      let activityDay = parseInt(activity.date.split(":")[0])*365 + daysIntoYear(activity.date)
+
+      if (! (activityDay > currentDay-30)){
+          continue
+      }
+      monthlyValues[types.indexOf(activity.type)] += parseInt(activity.stress)
+    }
+    let mostStressedMonth = ""
+    maxStress = 0
+    for (let i=0; i<types.length; i++){
+      if (monthlyValues[i] > maxStress){
+        maxStress = monthlyValues[i]
+        mostStressedMonth = types[i]
+      }
+    }
+
+    //mostStressedToday
+    //mostStressedWeek
+    //mostStressedMonth
+    //^^ variables that hold the type with the most total stress
+    //ADD ALL YOUR IF STATEMENTS HERE
+
+    console.log(mostStressedToday, mostStressedWeek, mostStressedMonth)
+
 
     for (let node of document.getElementById("graphSettings").childNodes){
       node.addEventListener("input",function(){showGraph(logs)})
