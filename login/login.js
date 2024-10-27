@@ -27,7 +27,7 @@ function init(){
     let submitEmt = document.getElementById("submit")
 
     submitEmt.addEventListener("click",function(){ submit(email.value, pass.value) })
-
+    newAccount = sessionStorage.getItem("authType")=="register"
     switchAuthType(sessionStorage.getItem("authType") == "register")
 
 }
