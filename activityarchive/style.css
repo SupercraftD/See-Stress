@@ -99,6 +99,16 @@ a {
     text-decoration: underline;
     
    }
+
+#logger{
+  font-family: 'Merriweather';
+  font-size: 200%;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: coral;
+  cursor: pointer;
+  margin: 15px;
+}
    
 #rightalignbuttons{
     font-family: 'Merriweather';

@@ -23,7 +23,9 @@ document.getElementById("login").addEventListener("click", function(){
   document.getElementById("register").addEventListener("click", function(){
     auth.signOut()
   })
-  
+document.getElementById("logger").addEventListener("click", function(){
+  location.href = "/activitylogger/"
+})
 
 onAuthStateChanged(auth, async(user)=>{
   if (user){

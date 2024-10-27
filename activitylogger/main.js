@@ -110,6 +110,10 @@ onAuthStateChanged(auth, async(user)=>{
     document.getElementById("archive").addEventListener("click", function(){
         location.href = "/activityarchive/"
     })
+    document.getElementById("insights").addEventListener("click", function(){
+        location.href = "/insights/"
+    })
+
     document.getElementById("submitActivity").addEventListener("click",async function(){
     
         document.getElementById("submitActivity").disabled = true

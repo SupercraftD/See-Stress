@@ -102,13 +102,17 @@ a {
 
 #mainButtons{
   display: flex;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
+  width: 100%;
 }
 #mainButtons button{
-  margin: 3%;
-  padding: 3%;
+  font-family: 'Merriweather';
   font-size: 200%;
-  border-radius: 25px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: coral;
+  cursor: pointer;
+  margin: 2%;
 }
 #mainButtons button:hover{
   cursor: pointer;

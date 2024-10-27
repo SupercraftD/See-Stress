@@ -162,9 +162,8 @@ a {
 #bottombuttons{
   font-family: 'Merriweather';
   width: 75%;
-  left: 50%;
+  margin: auto;
   top:100%;
-  transform: translate(8.5%,0);
   text-align: middle;
   margin: auto;
   display: flex;

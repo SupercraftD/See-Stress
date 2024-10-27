@@ -37,6 +37,9 @@ document.getElementById("graph").addEventListener("click", function(){
 document.getElementById("helplink").addEventListener("click", function(){
   location.href = "/resources/"
 })
+document.getElementById("activityarchive").addEventListener("click", function(){
+  location.href = "/activityarchive/"
+})
 
 
 onAuthStateChanged(auth, async(user)=>{
