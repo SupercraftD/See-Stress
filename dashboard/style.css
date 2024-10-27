@@ -42,8 +42,7 @@
   color: black;
   font-size: large;
 
-  padding-left: 7%;
-  padding-right: 7%;
+  
 }
 
 .aboutheader {
@@ -161,20 +160,17 @@ a {
 
 #bottombuttons{
   font-family: 'Merriweather';
-  width: 75%;
-  margin: auto;
+  width: 100%;
   top:100%;
-  text-align: middle;
+  text-align: center;
   margin: auto;
-  display: flex;
-  justify-content: space-evenly;
-  
 
+  display: flex;
+  justify-content:space-evenly;
 }
 
 #bottombuttons button{
   font-family: 'Merriweather';
-  margin-right: 15%;
   font-size: 200%;
   border-radius: 20px;
   padding: 10px;
