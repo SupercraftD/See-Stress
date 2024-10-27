@@ -158,6 +158,55 @@ onAuthStateChanged(auth, async(user)=>{
     //^^ variables that hold the type with the most total stress
     //ADD ALL YOUR IF STATEMENTS HERE
 
+    let dailyinsight = "";
+    let weeklyinsight = "";
+    let monthlyinsight = "";
+
+    if(mostStressedToday == "test"){
+        dailyinsight = "You seemed to have the most stress today from taking tests. This can happen on busy days, but it is important to stay calm and not worry too much. Here is a link to some test taking strategies: <a href = 'https://summer.harvard.edu/blog/14-tips-for-test-taking-success/'>Link.</a> ";
+    }
+    if(mostStressedWeek == "test"){
+        weeklyinsight = "You seemed to have the most stress this week from taking tests. This can happen on some weeks, but it is important to stay calm and not worry too much. Here is a link to some test taking strategies. <a href = 'https://summer.harvard.edu/blog/14-tips-for-test-taking-success/'>Link.</a> However, if you did not have many tests this week, it is important to consider why taking tests is so stressful for you. Consider going in to ask your teachers questions during their office hours.";
+    }
+    if(mostStressedMonth == "test"){
+        monthlyinsight =  "You seemed to have the most stress this month from taking tests. Here is a link to some test taking strategies. <a href = 'https://summer.harvard.edu/blog/14-tips-for-test-taking-success/'>Link.</a> However, if you did not have many tests this week, it is important to consider why taking tests is so stressful for you. Consider going in to ask your teachers questions during their office hours. If that is still not enough, consider seeking help form other students, parents, and even the internet.";
+    }
+
+    if(mostStressedToday == "hw"){
+        dailyinsight = "You seemed to have the most stress today from homework. This can happen on busy days, but it is important to not worry too much."
+    }
+    if(mostStressedWeek == "hw"){
+        weeklyinsight = "You seemed to have the most stress this week from taking tests. This can happen on some weeks when workload is high, but you need to manage time effectivley. Maybe try different tecniques to improve productivity while workind, and consider going in to ask your teachers questions during their office hours."
+    }
+    if(mostStressedMonth == "hw"){
+        monthlyinsight = "You seemed to have the most stress this week from doing homework. If homework is causing you the most stress over multiple weeks, you should definetly try to change your habits in some way. Try going into teachers for support during office hours, asking other students for help, or even consulting the internet."
+    }
+
+    if(mostStressedToday == "family"){
+        dailyinsight = "You seemed to have the most stress today from family. This can happen on certain days when something happens, but it is important to stay calm and not worry too much."
+    }
+    if(mostStressedWeek == "family"){
+        weeklyinsight = "You seemed to have the most stress this week from family. This can happen occasionally on certain weeks, but you should try to talk it out with your family, and see what is causing so much stress."
+    }
+    if(mostStressedMonth == "family"){
+        monthlyinsight = "You seemed to have the most stress this month from family. In times like this, it can be vital to go and try to talk things out with your family and find out what is causing all the stress, and how to stop it."
+    }
+
+    
+    if(mostStressedToday == "social"){
+        dailyinsight = "You seemed to have the most stress from social situations and interactions today. On days where there is lot of social interactions, this can happen."
+    }
+    if(mostStressedWeek == "social"){
+        weeklyinsight = "You seemed to have the most stress for social situations and interactions this week. Try to have some alone time, and don't worry about what other people think of you."
+    }
+    if(mostStressedMonth == "social"){
+        monthlyinsight = "You seemed to have the most stress for social situations and interactions this month. Definetly take some alone time, and you don't always need to worry about what other people are doing, or what they think about you. If the issue persists, maybe consider asking your counselor or parents."
+    }
+
+    document.getElementById("daily").innerHTML = dailyinsight;
+    document.getElementById("weekly").innerHTML = weeklyinsight;
+    document.getElementById("monthly").innerHTML = monthlyinsight;
+
     console.log(mostStressedToday, mostStressedWeek, mostStressedMonth)
 
 
