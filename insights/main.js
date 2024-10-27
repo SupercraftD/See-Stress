@@ -308,6 +308,10 @@ function showGraph(logs){
         }
       }
 
+      if (valueCounts[valueCounts.length-1]==0){
+        valueCounts[valueCounts.length-1]=1
+      }
+
     }
     
 
