@@ -21,8 +21,7 @@ document.getElementById("login").addEventListener("click", function(){
     location.href = "/dashboard/"
   })
   document.getElementById("register").addEventListener("click", function(){
-    sessionStorage.setItem("authType","register")
-    location.href = "/login/"
+    auth.signOut()
   })
   
 
@@ -108,6 +107,9 @@ onAuthStateChanged(auth, async(user)=>{
     }
 
     document.getElementById("add").addEventListener("click",toggleShowAdd)
+    document.getElementById("archive").addEventListener("click", function(){
+        location.href = "/activityarchive/"
+    })
     document.getElementById("submitActivity").addEventListener("click",async function(){
     
         document.getElementById("submitActivity").disabled = true
@@ -143,7 +145,7 @@ onAuthStateChanged(auth, async(user)=>{
   }else{
     
     //is signed out
-    location.href = "/login/"
+    location.href = "/"
   }
 })
 

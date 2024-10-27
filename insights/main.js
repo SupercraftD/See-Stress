@@ -24,8 +24,7 @@ document.getElementById("login").addEventListener("click", function(){
     location.href = "/dashboard/"
   })
   document.getElementById("register").addEventListener("click", function(){
-    sessionStorage.setItem("authType","register")
-    location.href = "/login/"
+    auth.signOut()
   })
 
 onAuthStateChanged(auth, async(user)=>{
@@ -170,7 +169,7 @@ onAuthStateChanged(auth, async(user)=>{
 
 
   }else{
-    location.href = "/login/"
+    location.href = "/"
   }
 
 })

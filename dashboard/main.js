@@ -23,8 +23,7 @@ document.getElementById("login").addEventListener("click", function(){
 
 ///fix this
 document.getElementById("register").addEventListener("click", function(){
-  sessionStorage.setItem("authType","register")
-  location.href = "/login/"
+  auth.signOut()
 })
 
 document.getElementById("activitylogger").addEventListener("click", function(){
@@ -43,6 +42,7 @@ onAuthStateChanged(auth, async(user)=>{
   }else{
     
     //is signed out
+    location.href = "/"
 
   }
 })

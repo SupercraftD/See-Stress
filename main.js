@@ -30,7 +30,8 @@ onAuthStateChanged(auth, async(user)=>{
   if (user){
 
     //is signed in
-
+    location.href="/dashboard/"
+    
   }else{
     
     //is signed out
