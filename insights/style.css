@@ -70,7 +70,7 @@
   padding: 10px; 
 }
 #insighttext{
-    background-image: linear-gradient(#403b37, #8eb2ec);
+    background-image: linear-gradient(#595049, #8eb2ec);
     
     right:0px;
     left:0px;
@@ -118,8 +118,30 @@ a {
     background-color: coral;
   
   }
+
   
   #rightalignbuttons button:hover{
     cursor: pointer;
   }
   
+#graphSettings{
+  margin: 10px;
+  font-size: 150%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#graphSettings input,select{
+  font-size: 100%;
+}
+
+#graphCtx{
+  background-color: white;
+  padding: 10px;
+  width:50%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#trendFields{
+  display: none;
+}

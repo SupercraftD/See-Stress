@@ -1,6 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"
+import { Chart, registerables } from "chart.js"
+
+Chart.register(...registerables)
 
 const firebaseConfig = {
   apiKey: "AIzaSyCTdNmROBb4Qslb0W2vW_Pmzsss_xuztuo",
@@ -76,6 +79,19 @@ onAuthStateChanged(auth, async(user)=>{
     console.log(stressSum,stressCount)
     let avgStress = Math.round(stressSum/stressCount)
     document.getElementById("avgstresslevel").innerHTML = avgStress
+    let adviceString = ""
+    if (avgStress >= 0){
+      adviceString = "You had a very restful day, with almost no stess. This is good, because you still have a lot of energy for the next day."
+    }if (avgStress >= 3){
+      adviceString = "You had a pretty chill day, and still have a lot of energy left for tomorrow."
+    }if (avgStress >= 5){
+      adviceString = "You had a average day, without too much stress but still a decent amount. If you get rest, you will be good for tomorrow."
+    }if (avgStress >= 7){
+      adviceString = "You had a very stressful day, and should get good sleep to be recovered tomorrow."
+    }if (avgStress  >= 9){
+      adviceString = "You really need to take some time to rest, and get a lot of good sleep after a really stressful day. Consider meditating. "
+    }
+    document.getElementById("dailyadvice").innerHTML = adviceString
 
     let types = ["test","hw","family","social","other"]
 
@@ -87,9 +103,204 @@ onAuthStateChanged(auth, async(user)=>{
       document.getElementById(type+"Stress").innerHTML = v
     }
 
+    for (let node of document.getElementById("graphSettings").childNodes){
+      node.addEventListener("input",function(){showGraph(logs)})
+    }
+
+    showGraph(logs)
+
+
   }else{
     location.href = "/login/"
   }
 
 })
-  
+
+function daysIntoYear(date){
+  let [year,month,day] = date.split("-")
+  month=month-1
+  date = new Date(parseInt(year),parseInt(month),parseInt(day))
+  return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
+}
+function leapYear(year)
+{
+  return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
+
+
+let chart
+let todayOptionExists=true
+
+function showGraph(logs){
+
+  if (chart){
+    chart.destroy()
+  }
+
+  const ctx = document.getElementById("graphCanvas")
+
+  let types = ["test","hw","family","social","other"]
+  let values = [0,0,0,0,0]
+  let valueCounts = [0,0,0,0,0]
+
+  let date = new Date();
+  let year = date.getFullYear()
+  let month = date.getMonth()
+  let day = date.getDate()
+
+  let currentDay = parseInt(year) * 365 + daysIntoYear(`${year}-${month+1}-${day}`)
+
+  let timeframe = document.getElementById("timeframe").value
+
+  for (let activity of logs){
+
+    let activityDay = parseInt(activity.date.split(":")[0])*365 + daysIntoYear(activity.date)
+
+    let eligible = false
+
+    console.log(currentDay,"djhdhd",activityDay)
+
+    if (timeframe == "today"){
+      eligible = activityDay == currentDay
+    }else if (timeframe == "week"){
+      eligible = activityDay>currentDay-7 
+    }else if (timeframe == "month"){
+      eligible = activityDay>currentDay-30
+    }else{
+      eligible = activityDay> currentDay-365
+    }
+
+    if (!eligible){continue}
+
+    values[types.indexOf(activity.type)]+= parseInt(activity.stress)
+    valueCounts[types.indexOf(activity.type)]++
+  }
+
+  if (document.getElementById("graphType").value == "pie"){
+    document.getElementById("graphCtx").style.width = "50%"
+  }else{
+    document.getElementById("graphCtx").style.width = "75%"
+  }
+
+  if (document.getElementById("graphType").value == "line"){
+    types=[]
+    values=[]
+    valueCounts=[]
+
+
+    document.getElementById("trendFields").style.display = "block"
+
+    if (todayOptionExists){
+      document.getElementById("timeframe").remove(0)
+      todayOptionExists = false  
+    }
+
+    let t = document.getElementById("timeframe").value
+    let startDate = 0
+    if (t=="week"){
+      startDate = currentDay-7
+    }else if (t=="month"){
+      startDate = currentDay-30
+    }else{
+      startDate = currentDay-365
+    }
+
+    for (let day = startDate+1; day <= currentDay; day++){
+
+      let y = Math.floor(day/365)
+      let diy = day%365
+      let m = 0
+
+      let daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
+      if (leapYear(y)){
+        daysInMonth[1] = 29
+      }
+
+      for (let month of daysInMonth){
+        if (diy > month){
+          diy -= month
+          m++
+        }else{
+          break
+        }
+      }
+      m++
+
+      types.push(`${y}-${m}-${diy}`)
+      values.push(0)
+      valueCounts.push(0)
+
+      for (let activity of logs){
+        let activityDay = parseInt(activity.date.split(":")[0])*365 + daysIntoYear(activity.date)
+        console.log(day,activityDay)
+        if (activityDay == day){
+
+          let eligible = false
+          let tr = document.getElementById("trend").value
+          if (tr=="all"){
+            eligible = true
+          }else{
+            eligible = activity.type == tr
+          }
+
+          if(!eligible){continue}
+
+          values[values.length-1]+=parseInt(activity.stress)
+          valueCounts[valueCounts.length-1]++
+        }
+      }
+
+    }
+    
+
+    
+  }else{
+    document.getElementById("trendFields").style.display = "none"
+
+    if (!todayOptionExists){
+      let t = new Option("Today","today")
+      document.getElementById("timeframe").add(t,0)
+      todayOptionExists = true
+    }
+
+  }
+
+  if (document.getElementById("val").value == "average"){
+    for (let i=0; i<values.length; i++){
+      values[i] = Math.round(values[i]/valueCounts[i])
+    }
+  }
+  let t = document.getElementById("timeframe").value
+  chart = new Chart(ctx, {
+    type:document.getElementById("graphType").value,
+    data:{
+      labels: types,
+      datasets: [{
+        label: `${document.getElementById("val").value == "total" ? "Total" : "Average"} Stress Level`,
+        data: values,
+        borderWidth:1,
+        backgroundColor:[
+          'rgba(255, 99, 132, 0.5)',
+          'rgba(255, 159, 64, 0.5)',
+          'rgba(255, 205, 86, 0.5)',
+          'rgba(75, 192, 192, 0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(153, 102, 255, 0.5)',
+          'rgba(201, 203, 207, 0.5)'    
+        ],
+        borderColor:"black",
+        tension:0.1,
+        fill:false,
+        pointRadius: t == "week" ? 10 : t == "month" ? 7 : 1 
+      }]
+    },
+    options:{
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  })
+
+}

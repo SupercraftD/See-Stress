@@ -30,6 +30,9 @@ document.getElementById("register").addEventListener("click", function(){
 document.getElementById("activitylogger").addEventListener("click", function(){
   location.href = "/activitylogger/"
 })
+document.getElementById("graph").addEventListener("click", function(){
+  location.href = "/insights/"
+})
 
 
 onAuthStateChanged(auth, async(user)=>{

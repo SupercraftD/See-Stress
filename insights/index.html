@@ -31,13 +31,8 @@
     <img id="bodybg" src="/Images/insightsbg.jpg"/>
 
       <div id = "insighttext">
-       <p> <p id = "importanttext">Your average stress level today was: <br> <p id="avgstresslevel">500,000</p> </p> <br>
-        If your stress is: <br>
-        >= 9: You really need to take some time to rest, and get a lot of good sleep after a really stressful day. Consider meditating. <br>
-        >= 7: You had a very stressful day, and should get good sleep to be recovered tomorrow. <br>
-        >= 5  You had a average day, without too much stress but still a decent amount. If you get rest, you will be good for tomorrow.<br>
-        >= 3  You had a pretty chill day, and still have a lot of energy left for tomorrow.<br>
-        >= 0  You had a very restful day, with almost no stess. This is good, because you still have a lot of energy for the next day.<br><br>
+       <p> <p id = "importanttext">Your average stress level today was: <br> <p id="avgstresslevel">500,000</p> </p>
+        <p id="dailyadvice"></p>
         <b>Total Stress for each category:</b><br>
        
         
@@ -54,6 +49,55 @@
 
         <h1>Graphs</h1>
 
+        <div id="graphSettings">
+
+          <div class="graphSettingField">
+            <label for="graphType">Graph Type:</label>
+            <select id="graphType">
+              <option value="bar">Bar</option>
+              <option value="pie">Pie</option>
+              <option value="line">Line</option>
+            </select>  
+          </div>
+          
+          <div class="graphSettingField">
+            <label for="timeframe">Timeframe:</label>
+            <select id="timeframe">
+              <option value="today">Today</option>
+              <option value="week">Last Week</option>
+              <option value="month">Last Month</option>
+              <option value="year">Last Year</option>
+            </select>  
+          </div>
+
+          <div class="graphSettingField">
+            <label for="val">Value:</label>
+            <select id="val">
+              <option value="total">Total</option>
+              <option value="average">Average</option>
+            </select>  
+          </div>
+
+          <div class="graphSettingField" id="trendFields">
+            <label for="trend">Trend of:</label>
+            <select id="trend">
+              <option value="all">All</option>
+              <option value="test">Test</option>
+              <option value="hw">HW</option>
+              <option value="family">Family</option>
+              <option value="social">Social</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+  
+
+        </div>
+
+
+
+        <div id="graphCtx">
+          <canvas id="graphCanvas"></canvas>
+        </div>
 
         <div id = "footer">
           <p> Made by Supercraftd, Formulaeagle161, Swamirabbitima</p>
