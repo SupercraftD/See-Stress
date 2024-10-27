@@ -39,7 +39,25 @@ onAuthStateChanged(auth, async(user)=>{
     }
     let data = userDoc.data()
     console.log(data)
-    let logs = data.log.reverse()
+    let logs = data.log
+    logs.sort((a,b)=>{
+
+      let time = (x)=>{
+        let [year, month, day] = x.date.split("-")
+        let [hours, minutes] = x.time.split(":")
+
+        minutes = parseInt(minutes) + parseInt(hours)*60
+        minutes += parseInt(day) * 24  * 60
+        minutes += parseInt(month) * 30 * 24 * 60
+        minutes += parseInt(year) * 12 * 30 * 24 * 60
+        
+        return minutes
+      }
+
+      return time(a)-time(b)
+
+    })
+    logs=logs.reverse()
 
     function refreshList(){
 
@@ -113,15 +131,3 @@ onAuthStateChanged(auth, async(user)=>{
     location.href = "/login/"
   }
 })
-
-function toggleShowAdd(){
-    let a = document.getElementById("add")
-
-    if (a.innerHTML == "Add Log"){
-        document.getElementById("addActivity").style.display = "block"
-        a.innerHTML = "Cancel"
-    }else{
-        document.getElementById("addActivity").style.display = "none"
-        a.innerHTML = "Add Log"
-    }
-}
