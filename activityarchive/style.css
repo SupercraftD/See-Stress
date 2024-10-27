@@ -122,4 +122,19 @@ a {
   #rightalignbuttons button:hover{
     cursor: pointer;
   }
+  .activity{
+    background-color: #accdff;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 50%;
+    transform: translate(50%,0);
+    margin: 10px;
+  }
+  
+#activityTemplate{
+    display: none;
+  }
+  .lbl{
+    font-weight: bold;
+  }
   
